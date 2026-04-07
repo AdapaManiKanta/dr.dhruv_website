@@ -9,9 +9,16 @@ const ContactSection = () => (
     <div className="container relative">
       <Reveal>
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Contact Us</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2">Book Your Physiotherapy Session Today</h2>
-          <p className="text-muted-foreground mt-4">Get in touch and start your recovery journey with Expert Physio Care.</p>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+            Contact Us
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2">
+            Book Your Physiotherapy Session Today
+          </h2>
+          <p className="text-muted-foreground mt-4">
+            Get in touch and start your recovery journey with Expert Physio
+            Care.
+          </p>
         </div>
       </Reveal>
 
@@ -19,22 +26,61 @@ const ContactSection = () => (
         <Reveal direction="left">
           <div className="space-y-6">
             {[
-              { icon: Mail, title: "Email", content: <a href="mailto:expertsphysiotherapyhomecare@gmail.com" className="text-muted-foreground hover:text-primary transition-colors text-sm break-all">expertsphysiotherapyhomecare@gmail.com</a> },
-              { icon: Phone, title: "Phone", content: <a href="tel:+918309506151" className="text-muted-foreground hover:text-primary transition-colors">+91 83095 06151</a> },
-              { icon: MapPin, title: "Location", content: <p className="text-muted-foreground">Hyderabad, India</p> },
+              {
+                icon: Mail,
+                title: "Email",
+                content: (
+                  <a
+                    href="mailto:expertsphysiotherapyhomecare@gmail.com"
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm break-all"
+                  >
+                    expertsphysiotherapyhomecare@gmail.com
+                  </a>
+                ),
+              },
+              {
+                icon: Phone,
+                title: "Phone",
+                content: (
+                  <a
+                    href="tel:+919110786670"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    +91 91107 86670
+                  </a>
+                ),
+              },
+              {
+                icon: MapPin,
+                title: "Location",
+                content: (
+                  <p className="text-muted-foreground">Hyderabad, India</p>
+                ),
+              },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-4 group">
                 <div className="w-12 h-12 rounded-2xl glass-card flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <item.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+                  <h3 className="font-semibold text-foreground mb-1">
+                    {item.title}
+                  </h3>
                   {item.content}
                 </div>
               </div>
             ))}
-            <Button asChild size="lg" className="w-full sm:w-auto mt-4" style={{ background: "var(--gradient-warm)" }}>
-              <a href="https://wa.me/918309506151" target="_blank" rel="noopener noreferrer">
+            <Button
+              asChild
+              size="lg"
+              className="w-full sm:w-auto mt-4"
+              style={{ background: "var(--gradient-warm)" }}
+            >
+              <a
+                href="https://wa.me/919110786670"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <MessageCircle className="w-5 h-5 mr-2" /> Chat on WhatsApp
               </a>
             </Button>
