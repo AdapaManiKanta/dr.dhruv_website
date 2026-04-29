@@ -1,42 +1,109 @@
-import { Home, Brain, Bone, Zap, HeartHandshake } from "lucide-react";
+import { Home, Brain, Bone, Zap, HeartHandshake, Dumbbell } from "lucide-react";
 import { Reveal } from "@/hooks/useScrollReveal";
 
 const services = [
-  { icon: Home, title: "Home Physiotherapy", desc: "Personalized treatment at your home for maximum comfort and convenience.", color: "174 62% 38%" },
-  { icon: Brain, title: "Stroke Rehabilitation", desc: "Improve mobility, speech & recovery with specialized stroke rehab programs.", color: "200 60% 45%" },
-  { icon: Bone, title: "Post-Surgery Recovery", desc: "Faster healing support with expert post-operative physiotherapy care.", color: "32 90% 55%" },
-  { icon: Zap, title: "Pain Relief Therapy", desc: "Effective relief for back pain, neck pain, joint pain & chronic conditions.", color: "174 50% 48%" },
-  { icon: HeartHandshake, title: "Elderly Care", desc: "Safe, gentle & comfortable rehabilitation designed for senior patients.", color: "200 40% 40%" },
+  {
+    icon: Home,
+    title: "Home Physiotherapy",
+    desc: "Personalised treatment at your home for maximum comfort and convenience.",
+    color: "175 70% 32%",
+    delay: 0,
+    direction: "left" as const,
+  },
+  {
+    icon: Brain,
+    title: "Stroke Rehabilitation",
+    desc: "Specialised programs to improve mobility, speech & cognitive recovery after stroke.",
+    color: "200 65% 42%",
+    delay: 100,
+    direction: "up" as const,
+  },
+  {
+    icon: Bone,
+    title: "Post-Surgery Recovery",
+    desc: "Faster healing with expert post-operative physiotherapy and guided rehabilitation.",
+    color: "38 95% 52%",
+    delay: 200,
+    direction: "right" as const,
+  },
+  {
+    icon: Zap,
+    title: "Pain Relief Therapy",
+    desc: "Effective, science-backed relief for back, neck, joint pain & chronic conditions.",
+    color: "175 65% 42%",
+    delay: 0,
+    direction: "left" as const,
+  },
+  {
+    icon: HeartHandshake,
+    title: "Elderly Care",
+    desc: "Safe, gentle rehabilitation designed specifically for senior patients.",
+    color: "200 50% 40%",
+    delay: 100,
+    direction: "up" as const,
+  },
+  {
+    icon: Dumbbell,
+    title: "Sports Injury Rehab",
+    desc: "Get back in the game faster with tailored sports injury recovery plans.",
+    color: "38 80% 48%",
+    delay: 200,
+    direction: "right" as const,
+  },
 ];
 
 const ServicesSection = () => (
-  <section id="services" className="py-20 md:py-28 section-gradient relative overflow-hidden">
-    {/* Background decoration */}
-    <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+  <section
+    id="services"
+    className="py-16 md:py-28 pb-20 md:pb-28 relative overflow-hidden"
+    style={{ background: "var(--gradient-section)" }}
+  >
+    {/* Orbs */}
+    <div className="hidden md:block absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none animate-glow"
+      style={{ background: "radial-gradient(circle, hsla(175,70%,50%,0.07) 0%, transparent 65%)", transform: "translate(30%,-30%)" }} />
 
     <div className="container relative">
-      <Reveal>
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Our Services</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2">Comprehensive Care at Home</h2>
-          <p className="text-muted-foreground mt-4">Professional physiotherapy services tailored to your specific needs and delivered at your doorstep.</p>
+      {/* Heading */}
+      <Reveal direction="left" distance={50} duration={900}>
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16 px-2">
+          <span className="inline-block text-xs md:text-sm font-semibold uppercase tracking-widest text-[hsl(175,70%,32%)] mb-3 px-3 md:px-4 py-1 rounded-full bg-[hsla(175,70%,32%,0.1)]">
+            Our Services
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
+            Comprehensive Care{" "}
+            <span className="text-gradient-primary">at Home</span>
+          </h2>
+          <p className="text-muted-foreground mt-3 md:mt-4 text-sm md:text-base leading-relaxed">
+            Professional physiotherapy services tailored to your specific needs, delivered right to your doorstep.
+          </p>
         </div>
       </Reveal>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((s, i) => (
-          <Reveal key={s.title} delay={i * 100} direction={i % 2 === 0 ? "up" : "scale"}>
-            <div className="group glass-card rounded-2xl p-7 hover:shadow-[var(--shadow-elevated)] transition-all duration-500 hover:-translate-y-2 h-full">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {services.map((s) => (
+          <Reveal key={s.title} delay={s.delay} direction={s.direction} distance={40} duration={800}>
+            <div className="group glass-card rounded-2xl p-5 md:p-7 hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 hover:-translate-y-1 md:hover:-translate-y-2 h-full relative overflow-hidden cursor-default flex items-start gap-4 md:block">
+              {/* Mobile: side-by-side icon + text; Desktop: stacked */}
               <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex-shrink-0 flex items-center justify-center md:mb-5 transition-all duration-300 group-hover:scale-110"
                 style={{
                   background: `hsla(${s.color}, 0.12)`,
                   color: `hsl(${s.color})`,
                 }}
               >
-                <s.icon className="w-7 h-7" />
+                <s.icon className="w-6 h-6 md:w-7 md:h-7" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground font-serif mb-2">{s.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
+              <div className="flex-1 md:flex-none">
+                <h3 className="text-base md:text-xl font-semibold text-foreground font-serif mb-1 md:mb-2.5 group-hover:text-[hsl(175,70%,28%)] transition-colors duration-300">
+                  {s.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+              </div>
+              {/* Bottom bar */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-2xl"
+                style={{ background: `linear-gradient(90deg, hsl(${s.color}), transparent)` }}
+              />
             </div>
           </Reveal>
         ))}
