@@ -1,14 +1,11 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Block admin/dashboard pages from being indexed
+Disallow: /login
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /therapist
+
+# Sitemap location (update domain when deployed)
+Sitemap: https://expertphysiocare.com/sitemap.xml
