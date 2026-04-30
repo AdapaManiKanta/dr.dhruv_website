@@ -98,9 +98,7 @@ const Footer = () => (
       {/* Bottom bar */}
       <div className="border-t border-white/8 pt-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] md:text-xs text-white/35">
         <p className="flex items-center gap-1">
-          © {new Date().getFullYear()} Expert Physio Care. Made with{" "}
-          <Heart className="w-3 h-3 text-[hsl(330,65%,55%)] fill-[hsl(330,65%,55%)]" />{" "}
-          for better health.
+          © {new Date().getFullYear()} Expert Physio Care.
         </p>
         <p>All rights reserved.</p>
       </div>
