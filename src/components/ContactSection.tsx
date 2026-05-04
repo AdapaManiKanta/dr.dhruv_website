@@ -22,9 +22,9 @@ const contactItems = [
     icon: Phone,
     title: "Phone",
     content: (
-      <a href="tel:+919110786670"
+      <a href="tel:+919391376670"
         className="text-muted-foreground hover:text-[hsl(175,70%,32%)] transition-colors font-medium text-sm md:text-base">
-        +91 91107 86670
+        +91 9391376670
       </a>
     ),
     color: "200 65% 42%",
@@ -38,9 +38,9 @@ const contactItems = [
 ];
 
 const ContactSection = () => {
-  const [form, setForm]       = useState({ name: "", phone: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
-  const [submitted,  setSubmitted]  = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -55,11 +55,11 @@ const ContactSection = () => {
 
     setSubmitting(true);
     const { error } = await supabase.from("contact_submissions").insert({
-      name:    form.name.trim(),
-      phone:   form.phone.trim() || null,
-      email:   form.email.trim() || null,
+      name: form.name.trim(),
+      phone: form.phone.trim() || null,
+      email: form.email.trim() || null,
       message: form.message.trim(),
-      status:  "new",
+      status: "new",
     });
 
     if (error) {
@@ -123,7 +123,7 @@ const ContactSection = () => {
               <Button asChild size="lg"
                 className="w-full font-semibold py-5 md:py-6 rounded-xl text-white transition-all duration-300"
                 style={{ background: "var(--gradient-warm)" }}>
-                <a href="https://wa.me/919110786670" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/919391376670" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                   Chat on WhatsApp
                 </a>

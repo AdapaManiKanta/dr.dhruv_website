@@ -7,7 +7,7 @@ const FloatingButtons = () => (
       <div className="flex border-t border-white/10 shadow-[0_-4px_24px_-4px_hsla(220,35%,10%,0.18)]"
         style={{ background: "var(--gradient-dark, hsl(220,40%,10%))" }}>
         <a
-          href="tel:+919110786670"
+          href="tel:+919391376670"
           className="flex-1 flex items-center justify-center gap-2.5 py-4 text-white font-semibold text-sm transition-colors active:bg-white/10"
           aria-label="Call Expert Physio Care"
         >
@@ -18,7 +18,7 @@ const FloatingButtons = () => (
         </a>
         <div className="w-px bg-white/10" />
         <a
-          href="https://wa.me/919110786670"
+          href="https://wa.me/919391376670"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2.5 py-4 text-white font-semibold text-sm transition-colors active:bg-white/10"
@@ -35,7 +35,7 @@ const FloatingButtons = () => (
 
     {/* Desktop floating WhatsApp only */}
     <a
-      href="https://wa.me/919110786670"
+      href="https://wa.me/919391376670"
       target="_blank"
       rel="noopener noreferrer"
       className="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full items-center justify-center shadow-xl animate-pulse-gentle transition-transform hover:scale-110"

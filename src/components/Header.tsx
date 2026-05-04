@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "Home",         href: "#home" },
-  { label: "Services",     href: "#services" },
-  { label: "Why Us",       href: "#why-us" },
-  { label: "About",        href: "#about" },
-  { label: "Our Team",     href: "#team" },
+  { label: "Home", href: "#home" },
+  { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-us" },
+  { label: "About", href: "#about" },
+  { label: "Our Team", href: "#team" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "FAQ",          href: "#faq" },
-  { label: "Contact",      href: "#contact" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
-  const [open, setOpen]         = useState(false);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -33,25 +33,22 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/92 backdrop-blur-xl shadow-[0_2px_24px_-4px_hsla(175,70%,28%,0.12)] border-b border-white/60"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+        ? "bg-white/92 backdrop-blur-xl shadow-[0_2px_24px_-4px_hsla(175,70%,28%,0.12)] border-b border-white/60"
+        : "bg-transparent"
+        }`}
     >
       <div className="container flex items-center justify-between h-14 sm:h-16 md:h-20">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2 group" aria-label="Expert Physio Care home">
-          <span className={`w-8 h-8 md:w-9 md:h-9 rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
-            scrolled
-              ? "bg-[hsl(175,70%,32%)] shadow-[0_0_16px_-2px_hsla(175,70%,32%,0.5)]"
-              : "bg-white/20 backdrop-blur-sm border border-white/30"
-          }`}>
+          <span className={`w-8 h-8 md:w-9 md:h-9 rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0 ${scrolled
+            ? "bg-[hsl(175,70%,32%)] shadow-[0_0_16px_-2px_hsla(175,70%,32%,0.5)]"
+            : "bg-white/20 backdrop-blur-sm border border-white/30"
+            }`}>
             <Activity className="w-4 h-4 md:w-5 md:h-5 text-white" />
           </span>
-          <span className={`font-serif text-lg sm:text-xl md:text-2xl font-bold transition-all duration-300 ${
-            scrolled ? "text-gradient-primary" : "text-white drop-shadow-sm"
-          }`}>
+          <span className={`font-serif text-lg sm:text-xl md:text-2xl font-bold transition-all duration-300 ${scrolled ? "text-gradient-primary" : "text-white drop-shadow-sm"
+            }`}>
             Expert Physio
           </span>
         </a>
@@ -62,16 +59,14 @@ const Header = () => {
             <a
               key={l.href}
               href={l.href}
-              className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-lg group ${
-                scrolled
-                  ? "text-foreground/70 hover:text-primary hover:bg-primary/5"
-                  : "text-white/85 hover:text-white hover:bg-white/10"
-              }`}
+              className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-lg group ${scrolled
+                ? "text-foreground/70 hover:text-primary hover:bg-primary/5"
+                : "text-white/85 hover:text-white hover:bg-white/10"
+                }`}
             >
               {l.label}
-              <span className={`absolute bottom-1 left-3 right-3 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${
-                scrolled ? "bg-primary" : "bg-white"
-              }`} />
+              <span className={`absolute bottom-1 left-3 right-3 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${scrolled ? "bg-primary" : "bg-white"
+                }`} />
             </a>
           ))}
           <div className="flex items-center gap-2 ml-3">
@@ -79,7 +74,7 @@ const Header = () => {
               <Link to="/login"><LogIn className="w-4 h-4 mr-1.5" /> Dashboard</Link>
             </Button>
             <Button asChild size="sm" className="bg-[hsl(175,70%,32%)] hover:bg-[hsl(175,75%,28%)] text-white shadow-[0_0_20px_-4px_hsla(175,70%,32%,0.5)] transition-all duration-300">
-              <a href="tel:+918309506151"><Phone className="w-4 h-4 mr-1.5" /> Call Now</a>
+              <a href="tel:+919391376670"><Phone className="w-4 h-4 mr-1.5" /> Call Now</a>
             </Button>
           </div>
         </nav>
@@ -88,18 +83,16 @@ const Header = () => {
         <div className="flex items-center gap-2 lg:hidden">
           {/* Mobile quick call icon */}
           <a
-            href="tel:+918309506151"
-            className={`flex items-center justify-center w-9 h-9 rounded-xl transition-colors ${
-              scrolled ? "bg-[hsl(175,70%,32%)] text-white" : "bg-white/15 text-white border border-white/25"
-            }`}
+            href="tel:+919391376670"
+            className={`flex items-center justify-center w-9 h-9 rounded-xl transition-colors ${scrolled ? "bg-[hsl(175,70%,32%)] text-white" : "bg-white/15 text-white border border-white/25"
+              }`}
             aria-label="Call now"
           >
             <Phone className="w-4 h-4" />
           </a>
           <button
-            className={`p-2 rounded-xl transition-colors ${
-              scrolled ? "text-foreground hover:bg-secondary" : "text-white hover:bg-white/10"
-            }`}
+            className={`p-2 rounded-xl transition-colors ${scrolled ? "text-foreground hover:bg-secondary" : "text-white hover:bg-white/10"
+              }`}
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -110,9 +103,8 @@ const Header = () => {
       </div>
 
       {/* Mobile nav drawer */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-350 ease-in-out ${
-        open ? "max-h-[90vh] opacity-100" : "max-h-0 opacity-0"
-      } bg-white/97 backdrop-blur-2xl border-b border-border/20 shadow-[0_8px_32px_-8px_hsla(220,35%,10%,0.15)]`}>
+      <div className={`lg:hidden overflow-hidden transition-all duration-350 ease-in-out ${open ? "max-h-[90vh] opacity-100" : "max-h-0 opacity-0"
+        } bg-white/97 backdrop-blur-2xl border-b border-border/20 shadow-[0_8px_32px_-8px_hsla(220,35%,10%,0.15)]`}>
         <nav className="flex flex-col py-2">
           {navLinks.map((l, i) => (
             <a
