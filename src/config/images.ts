@@ -32,6 +32,10 @@ export const doctorPhotos = {
     photo: "/images/doctors/dr-mahesh.jpg",
     hasPhoto: true,   // ✅ Photo added
   },
+  rakesh: {
+    photo: "/images/doctors/dr-rakesh.png",
+    hasPhoto: true,   // ✅ Photo added
+  },
 };
 
 // ─── GALLERY PHOTOS ───────────────────────────────────────────

@@ -40,7 +40,7 @@ const doctors = [
     name: "Dr. Prathyusha",
     role: "Female Physiotherapist",
     gender: "female" as const,
-    experience: "4+ Years",
+    experience: "5+ Years",
     isLead: false,
     initials: "DP",
     specializations: ["Women's Health", "Elderly Care", "Post-Natal Rehab"],
@@ -55,7 +55,7 @@ const doctors = [
     name: "Dr. Mahesh",
     role: "Male Physiotherapist",
     gender: "male" as const,
-    experience: "3+ Years",
+    experience: "5+ Years",
     isLead: false,
     initials: "DM",
     specializations: ["Neurological Rehab", "Balance Training", "Paediatric Physio"],
@@ -63,6 +63,21 @@ const doctors = [
     color: "38 90% 46%",
     gradientFrom: "hsl(38,90%,42%)",
     gradientTo: "hsl(20,85%,48%)",
+  },
+  {
+    id: "rakesh",
+    photoKey: "rakesh" as keyof typeof doctorPhotos,
+    name: "Dr. Rakesh",
+    role: "Male Physiotherapist",
+    gender: "male" as const,
+    experience: "5+ Years",
+    isLead: false,
+    initials: "DRK",
+    specializations: ["Orthopaedic Rehab", "Sports Injuries", "Pain Management"],
+    bio: "Dr. Rakesh is a skilled physiotherapist specialising in orthopaedic and sports rehabilitation, delivering focused, patient-centred care for effective recovery.",
+    color: "0 65% 48%",
+    gradientFrom: "hsl(0,65%,44%)",
+    gradientTo: "hsl(15,70%,50%)",
   },
 ];
 
@@ -174,7 +189,7 @@ const LeadDoctorCard = ({ doctor }: { doctor: (typeof doctors)[0] }) => (
           <div className="hidden lg:block flex-shrink-0">
             <div className="glass-dark rounded-2xl p-5 text-center">
               <div className="flex justify-center gap-0.5 mb-2">
-                {[1,2,3,4,5].map((s) => (
+                {[1, 2, 3, 4, 5].map((s) => (
                   <Star key={s} className="w-4 h-4 fill-[hsl(38,95%,60%)] text-[hsl(38,95%,60%)]" />
                 ))}
               </div>
@@ -186,7 +201,7 @@ const LeadDoctorCard = ({ doctor }: { doctor: (typeof doctors)[0] }) => (
 
         {/* Mobile stars */}
         <div className="flex items-center gap-1 mt-4 sm:hidden">
-          {[1,2,3,4,5].map((s) => (
+          {[1, 2, 3, 4, 5].map((s) => (
             <Star key={s} className="w-3.5 h-3.5 fill-[hsl(38,95%,60%)] text-[hsl(38,95%,60%)]" />
           ))}
           <span className="text-white/70 text-xs ml-1">5.0 Rating</span>
@@ -248,7 +263,7 @@ const DoctorCard = ({ doctor, index }: { doctor: (typeof doctors)[0]; index: num
           </div>
 
           <div className="flex items-center gap-1 mt-4 pt-4 border-t border-border/40">
-            {[1,2,3,4,5].map((s) => (
+            {[1, 2, 3, 4, 5].map((s) => (
               <Star key={s} className="w-3 h-3 md:w-3.5 md:h-3.5 fill-[hsl(38,95%,52%)] text-[hsl(38,95%,52%)]" />
             ))}
             <span className="text-[10px] md:text-xs text-muted-foreground ml-1">5.0</span>
@@ -289,7 +304,7 @@ const TeamSection = () => {
           <LeadDoctorCard doctor={lead} />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {rest.map((doc, i) => (
             <DoctorCard key={doc.id} doctor={doc} index={i} />
           ))}
