@@ -1,124 +1,152 @@
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { Activity, Star, CalendarCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Smartphone, Headset, ShieldCheck } from "lucide-react";
+import { Reveal } from "@/hooks/useScrollReveal";
+
+const steps = [
+  {
+    icon: Smartphone,
+    title: "User Friendly Booking",
+    description: "Easily schedule your physiotherapy session through our website or a quick WhatsApp message. Choose a time that suits you best.",
+    color: "hsl(210, 100%, 70%)", // Light Blue
+  },
+  {
+    icon: Headset,
+    title: "Best Support",
+    description: "Our dedicated team is always ready to assist you. We prioritize clear communication and compassionate care every step of the way.",
+    color: "hsl(210, 100%, 70%)", // Light Blue
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure & Reliable",
+    description: "Your health and privacy are our top priorities. Trust in our certified professionals to deliver safe, effective treatments at your home.",
+    color: "hsl(210, 100%, 70%)", // Light Blue
+  },
+];
 
 const PhysioScrollShowcase = () => {
   return (
-    <section className="relative overflow-hidden" style={{ background: "var(--gradient-dark)" }}>
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-
-      <ContainerScroll
-        titleComponent={
-          <div className="mb-6 md:mb-10 px-4">
-            {/* Badge */}
-            <div className="flex justify-center mb-4 md:mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white text-xs md:text-sm font-semibold border border-white/20 uppercase tracking-widest">
-                <Activity className="w-3.5 h-3.5 text-[hsl(175,70%,50%)]" />
-                How It Works
-              </span>
-            </div>
-
-            {/* Heading */}
-            <h2 className="text-3xl md:text-5xl lg:text-[5.5rem] font-bold text-white font-serif leading-tight">
-              Recovery at Your
-              <span
-                className="block mt-1"
-                style={{
-                  background: "var(--gradient-warm)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Doorstep
-              </span>
-            </h2>
-
-            <p className="text-white/60 mt-4 md:mt-5 text-sm md:text-lg max-w-xl mx-auto leading-relaxed">
-              Book once — our expert team arrives at your home, fully equipped for your treatment session.
-            </p>
-
-            {/* Mini stats row */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-6 md:mt-8">
-              {[
-                { icon: "🏅", label: "10+ Years Experience" },
-                { icon: "👥", label: "500+ Patients" },
-                { icon: "⭐", label: "5.0 Star Rating" },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-white/8 border border-white/12 text-white/70 text-xs md:text-sm font-medium"
-                >
-                  <span>{s.icon}</span>
-                  {s.label}
+    <section id="how-it-works" className="py-24 relative overflow-hidden bg-[#11131a]">
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          
+          {/* Left Column - Image with Circle background */}
+          <Reveal direction="right" duration={900} distance={50}>
+            <div className="relative flex justify-center lg:justify-end lg:pr-10">
+              {/* Large Circle Background */}
+              <div className="absolute top-1/2 left-1/2 lg:left-2/3 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] rounded-full bg-gradient-to-tr from-[#3a2b71] to-[#6a4cff] blur-xl opacity-90" />
+              
+              {/* Phone Mockup */}
+              <div className="relative z-10 w-[260px] sm:w-[300px] h-[550px] sm:h-[620px] rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden shadow-2xl border-[10px] border-[#222533] bg-[#1a1c26] transition-transform duration-500 flex flex-col">
+                
+                {/* Phone Notch */}
+                <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-20">
+                  <div className="w-32 h-6 bg-[#222533] rounded-b-xl flex items-center justify-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
+                    <div className="w-10 h-1.5 rounded-full bg-gray-600"></div>
+                  </div>
                 </div>
-              ))}
-            </div>
 
-            {/* CTA */}
-            <div className="flex justify-center mt-6 md:mt-8">
-              <Button
-                asChild
-                size="lg"
-                className="font-semibold px-8 py-5 rounded-xl text-white shadow-[0_0_32px_-4px_hsla(175,70%,40%,0.5)] hover:shadow-[0_0_44px_-4px_hsla(175,70%,40%,0.7)] transition-all duration-300"
-                style={{ background: "var(--gradient-primary)" }}
-              >
-                <a href="#contact">
-                  <CalendarCheck className="w-5 h-5 mr-2" />
-                  Book a Session
-                </a>
-              </Button>
-            </div>
-          </div>
-        }
-      >
-        {/* The 3D scroll card content — real physio session image */}
-        <div className="relative w-full h-full rounded-xl overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1400&h=900&fit=crop&q=85"
-            alt="Expert physiotherapist conducting a home visit session"
-            className="w-full h-full object-cover object-center"
-            draggable={false}
-          />
+                {/* Mockup Screen Content */}
+                <div className="flex-1 overflow-hidden pt-8 pb-4 px-4 flex flex-col gap-4 relative">
+                  
+                  {/* Mock App Header */}
+                  <div className="flex items-center justify-between mt-2">
+                    <div className="w-6 h-1 bg-gray-500 rounded-full" />
+                    <div className="text-white text-xs font-semibold">Dashboard</div>
+                    <div className="w-6 h-6 rounded-full bg-gray-700" />
+                  </div>
 
-          {/* Overlay with floating info cards */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  {/* Mock Card */}
+                  <div className="w-full h-40 rounded-2xl bg-gradient-to-br from-[#1b1c3b] to-[#0a0a1a] border border-gray-800 p-4 relative overflow-hidden shadow-lg mt-4">
+                    <div className="text-white font-bold text-lg mb-6 relative z-10 flex items-center gap-2">
+                      <div className="w-5 h-5 rounded bg-blue-500 flex items-center justify-center text-[10px]">EPC</div>
+                      Expert Physio
+                    </div>
+                    <div className="text-gray-400 font-mono tracking-widest text-sm relative z-10">**** **** **** 1234</div>
+                    <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-600 rounded-full blur-2xl opacity-20" />
+                  </div>
 
-          {/* Bottom info bar */}
-          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3">
-            <div className="glass-dark rounded-xl px-4 py-2.5 flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[hsl(175,70%,32%)] flex items-center justify-center">
-                <Activity className="w-4 h-4 text-white" />
+                  {/* Mock Stats/Menu */}
+                  <div className="flex gap-4 mt-2">
+                    <div className="flex-1 flex flex-col items-center gap-2">
+                      <div className="w-12 h-12 rounded-full border-[3px] border-blue-500 border-t-transparent" />
+                      <div className="w-10 h-2 bg-gray-700 rounded-full" />
+                    </div>
+                    <div className="flex-1 flex flex-col items-center gap-2">
+                      <div className="w-12 h-12 rounded-full border-[3px] border-purple-500 border-l-transparent" />
+                      <div className="w-10 h-2 bg-gray-700 rounded-full" />
+                    </div>
+                  </div>
+
+                  {/* Mock List */}
+                  <div className="bg-[#222533] rounded-2xl p-4 mt-4 flex-1">
+                    <div className="w-16 h-2 bg-gray-600 rounded-full mb-4" />
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-gray-700" />
+                        <div className="w-20 h-2 bg-gray-600 rounded-full" />
+                      </div>
+                      <div className="w-10 h-2 bg-green-500 rounded-full" />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-gray-700" />
+                        <div className="w-24 h-2 bg-gray-600 rounded-full" />
+                      </div>
+                      <div className="w-10 h-2 bg-red-500 rounded-full" />
+                    </div>
+                  </div>
+
+                  {/* Bottom Nav */}
+                  <div className="flex justify-around items-center pt-2 mt-auto border-t border-gray-800">
+                    <div className="w-6 h-6 bg-blue-500 rounded-md" />
+                    <div className="w-6 h-6 bg-gray-700 rounded-md" />
+                    <div className="w-6 h-6 bg-gray-700 rounded-md" />
+                    <div className="w-6 h-6 bg-gray-700 rounded-md" />
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className="text-white text-xs font-bold">Dr. Dhruva</p>
-                <p className="text-white/60 text-[10px]">Senior Physiotherapist</p>
+
+              {/* Floating dark card behind */}
+              <div className="absolute top-1/4 right-[70%] w-[180px] h-[260px] bg-[#1a1c26] rounded-2xl border border-gray-800 shadow-xl transform -rotate-12 -z-10 opacity-80 blur-[1px]" />
+            </div>
+          </Reveal>
+
+          {/* Right Column - Steps */}
+          <Reveal direction="left" duration={900} distance={50}>
+            <div className="lg:pl-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-sans">
+                Manage Everything in <br className="hidden sm:block"/> Your Hand
+              </h2>
+              <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-12 max-w-lg font-sans">
+                You can manage your account right from the palm of your hands with your mobile app. Save unnecessary cost and enjoy mobility in grand style.
+              </p>
+
+              <div className="space-y-10">
+                {steps.map((step, index) => (
+                  <div key={index} className="flex gap-6 group">
+                    {/* Icon Circle */}
+                    <div className="flex-shrink-0 relative flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-[#1b2341] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                        <step.icon className="w-7 h-7 text-[#7b8cff]" />
+                      </div>
+                      {/* Glow effect behind icon */}
+                      <div className="absolute inset-0 rounded-full bg-[#4a5cff] blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300" />
+                    </div>
+                    
+                    {/* Text content */}
+                    <div>
+                      <h3 className="text-[1.1rem] font-semibold text-[#7b8cff] mb-2 font-sans">{step.title}</h3>
+                      <p className="text-gray-400 text-[0.9rem] leading-relaxed max-w-sm font-sans">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-
-            <div className="glass-dark rounded-xl px-4 py-2.5 flex items-center gap-1.5">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <Star key={s} className="w-3 h-3 fill-[hsl(38,95%,60%)] text-[hsl(38,95%,60%)]" />
-              ))}
-              <span className="text-white text-xs font-bold ml-1">5.0</span>
-            </div>
-          </div>
-
-          {/* Top-left session badge */}
-          <div className="absolute top-4 left-4 glass-dark rounded-full px-3 py-1.5 flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-white text-xs font-semibold">Live Home Session</span>
-          </div>
+          </Reveal>
         </div>
-      </ContainerScroll>
+      </div>
     </section>
   );
 };
